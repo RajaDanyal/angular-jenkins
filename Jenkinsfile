@@ -3,12 +3,10 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        echo "Wrokspace is ${$WORKSPACE}"
         echo 'Checkout master branch'
         checkout scm
-        dir('webapp') {
+        
           bat 'npm install'
-        }
       }
     }
     stage('Build') {
