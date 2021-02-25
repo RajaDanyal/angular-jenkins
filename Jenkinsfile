@@ -17,7 +17,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        bat 'BUILD_ID=dontKillMe npm start &'
+        bat 'npm start'
       }
     }
   }
