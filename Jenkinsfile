@@ -17,10 +17,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        def cmd_exec(command) {
-          return bat(returnStdout: true, script: "${command}").trim()
-        }
-        cmd_exec('npm start')
+        BUILD_ID=dontKillMe npm start &
       }
     }
   }
