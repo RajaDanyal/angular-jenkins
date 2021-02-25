@@ -17,7 +17,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        BUILD_ID=dontKillMe bat 'npm start' &
+        cmd_exec('npm start')
       }
     }
   }
@@ -28,5 +28,8 @@ pipeline {
     failure {
       slackSend(color: '#FF0000', message: "Build Failed")
     }
+  }
+  def cmd_exec(command) {
+    return bat(returnStdout: true, script: "${command}").trim()
   }
 }
