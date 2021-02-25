@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
+    stage('NPM Install') {
       steps {
         echo 'Checkout master branch'
         checkout scm
@@ -17,7 +17,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        bat 'ng serve'
+        bat 'npm start'
       }
     }
   }
