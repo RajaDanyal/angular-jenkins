@@ -17,6 +17,9 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
+        def cmd_exec(command) {
+          return bat(returnStdout: true, script: "${command}").trim()
+        }
         cmd_exec('npm start')
       }
     }
@@ -29,7 +32,5 @@ pipeline {
       slackSend(color: '#FF0000', message: "Build Failed")
     }
   }
-  def cmd_exec(command) {
-    return bat(returnStdout: true, script: "${command}").trim()
-  }
+  
 }
