@@ -5,24 +5,19 @@ pipeline {
       steps {
         echo 'Checkout master branch'
         checkout scm
-        
-          bat 'npm install'
+        bat 'npm install'
       }
     }
     stage('Build') {
       steps {
         echo 'Building..'
-        dir('webapp') {
-          bat 'npm run build'
-        }
+        bat 'npm run build'
       }
     }
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        dir('webapp') {
-          bat 'ng serve'
-        }
+        bat 'ng serve'
       }
     }
   }
