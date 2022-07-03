@@ -1,11 +1,16 @@
 #!/usr/bin/env groovy
 pipeline {
     agent any
+  
 
     stages {
         stage("Checkout SCM") {
             steps {
-                Checkout scm
+              
+                echo "Current workspace is ${env.JENKINS_HOME}"
+
+              
+                checkout scm
             }
         }
 
