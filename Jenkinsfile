@@ -34,7 +34,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat 'BUILD_ID=dontKillMePlease node_modules\\.bin\\pm2 restart server.js'
+                bat 'node_modules\\.bin\\pm2 restart server.js'
             }
         }
     }
