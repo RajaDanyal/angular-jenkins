@@ -34,16 +34,9 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat '''
-                    node_modules\\.bin\\pm2 describe server.js > /dev/null
-                    RUNNING=$?
+                bat 'node_modules\\.bin\\pm2 delete -s server.js || :'
+                bat 'node_modules\\.bin\\pm2 start server.js'
 
-                    if [ "${RUNNING}" -ne 0 ]; then
-                    node_modules\\.bin\\pm2 start server.js
-                    else
-                    node_modules\\.bin\\pm2 restart server.js
-                    fi;
-                '''
             }
         }
     }
