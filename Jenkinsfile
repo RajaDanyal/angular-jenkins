@@ -22,19 +22,19 @@ pipeline {
 
         stage("Run tests") {
             steps {
-                sh "ng test --browsers ChromeHeadless"
+                bat "ng test --browsers ChromeHeadless"
             }
         }
 
         stage("Build") {
             steps {
-                sh "npm run build"
+                bat "npm run build"
             }
         }
 
         stage("Deploy") {
             steps {
-                sh "node server.js"
+                bat "node server.js"
             }
         }
     }
