@@ -34,7 +34,8 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat "forever start server.js"
+                bat "npm install pm2 -g"
+                bat "pm2 start server.js"
             }
         }
     }
