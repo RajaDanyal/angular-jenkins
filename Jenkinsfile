@@ -35,7 +35,7 @@ pipeline {
         stage("Deploy") {
             steps {
 bat '''
-if [ "$(pm2 id server) "= "[]" ]; then
+if [ "$(pm2 id server)" = "[]" ]; then
 node_modules\\.bin\\pm2 start server.js
 else
 node_modules\\.bin\\pm2 reload server.js
