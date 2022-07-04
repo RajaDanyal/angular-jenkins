@@ -36,7 +36,8 @@ pipeline {
             steps {
 bat '''
 call  IF "true"=="true" (
-echo pm2 pid server
+ TEST=`pm2 describe server`
+ echo $TEST
 )
 '''
             }
