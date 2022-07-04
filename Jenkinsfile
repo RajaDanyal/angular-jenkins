@@ -20,17 +20,17 @@ pipeline {
             }
         }
 
-        stage("Run tests") {
-            steps {
-                bat "npm run test"
-            }
-        }
+        // stage("Run tests") {
+        //     steps {
+        //         bat "npm run test"
+        //     }
+        // }
 
-        stage("Build") {
-            steps {
-                bat "npm run build"
-            }
-        }
+        // stage("Build") {
+        //     steps {
+        //         bat "npm run build"
+        //     }
+        // }
 
         stage("Deploy") {
             steps {
