@@ -22,7 +22,7 @@ pipeline {
 
         stage("Run tests") {
             steps {
-                bat "ng test --browsers ChromeHeadless"
+                bat "npm run test --browsers ChromeHeadless"
             }
         }
 
