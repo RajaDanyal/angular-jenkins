@@ -20,28 +20,23 @@ pipeline {
             }
         }
 
-        // stage("Run tests") {
-        //     steps {
-        //         bat "npm run test"
-        //     }
-        // }
-
-        // stage("Build") {
-        //     steps {
-        //         bat "npm run build"
-        //     }
-        // }
-
-        stage("Deploy") {
+        stage("Run tests") {
             steps {
-bat '''
-call  IF "true"=="true" (
- SET TEST=`pm2 describe server`
- echo $TEST
-)
-'''
+                bat "npm run test"
             }
         }
+
+        stage("Build") {
+            steps {
+                bat "npm run build"
+            }
+        }
+
+        // stage("Deploy") {
+        //     steps {
+        //         bat 'node_modules\\.bin\\pm2 stop server.js -f && node_modules\\.bin\\pm2 start server.js -f'
+        //     }
+        // }
     }
 
     post {
