@@ -35,11 +35,11 @@ pipeline {
         stage("Deploy") {
             steps {
 bat '''#!/bin/bash
-            if [ -e /root/test/*.php ];then
-            echo "Found file"
-            else
-            echo "Did not find file"
-            fi
+            call if [ -e /root/test/*.php ];then
+            call echo "Found file"
+            call else
+            call echo "Did not find file"
+            call fi
         '''
             }
         }
