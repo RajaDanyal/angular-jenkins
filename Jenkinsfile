@@ -34,7 +34,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat "node server.js"
+                bat "forever start server.js"
             }
         }
     }
