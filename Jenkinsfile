@@ -34,8 +34,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat 'node_modules\\.bin\\pm2 kill'
-                bat 'node_modules\\.bin\\pm2 start server.js -f'
+                bat 'node_modules\\.bin\\pm2 kill && node_modules\\.bin\\pm2 start server.js -f'
             }
         }
     }
