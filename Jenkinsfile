@@ -34,13 +34,13 @@ pipeline {
 
         stage("Deploy") {
             steps {
-bat '''
-if [ $(pm2 id server) = [] ]; then
-node_modules\\.bin\\pm2 start server.js
-else
-node_modules\\.bin\\pm2 reload server.js
-fi
-'''
+bat '''#!/bin/bash
+            if [ -e /root/test/*.php ];then
+            echo "Found file"
+            else
+            echo "Did not find file"
+            fi
+        '''
             }
         }
     }
