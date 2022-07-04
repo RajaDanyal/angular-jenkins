@@ -36,7 +36,7 @@ pipeline {
             steps {
 bat '''
 call  IF "true"=="true" (
- TEST=`pm2 describe server`
+ SET TEST=`pm2 describe server`
  echo $TEST
 )
 '''
