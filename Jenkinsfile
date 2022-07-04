@@ -34,7 +34,16 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat 'node_modules\\.bin\\pm2 stop --silent server.js && node_modules\\.bin\\pm2 start server.js -f'
+                bat '''
+                    node_modules\\.bin\\pm2 describe server.js > /dev/null
+                    RUNNING=$?
+
+                    if [ "${RUNNING}" -ne 0 ]; then
+                    node_modules\\.bin\\pm2 start server.js
+                    else
+                    node_modules\\.bin\\pm2 restart server.js
+                    fi;
+                '''
             }
         }
     }
