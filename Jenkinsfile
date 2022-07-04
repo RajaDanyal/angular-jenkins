@@ -35,7 +35,7 @@ pipeline {
         stage("Deploy") {
             steps {
 bat '''
-call if IF "true"=="true" (
+call  IF "true"=="true" (
 echo 'true'
 )
 '''
