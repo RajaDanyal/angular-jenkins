@@ -34,7 +34,8 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat 'node_modules\\.bin\\pm2 delete all && node_modules\\.bin\\pm2 start server.js -f'
+                bat 'node_modules\\.bin\\pm2 delete all'
+                bat 'node_modules\\.bin\\pm2 start server.js -f'
             }
         }
     }
