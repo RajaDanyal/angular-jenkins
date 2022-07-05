@@ -34,7 +34,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                bat 'node_modules\\.bin\\pm2 stop server.js || (exit 0)'
+                bat 'node_modules\\.bin\\pm2 stop server || (exit 0)'
                 bat 'node_modules\\.bin\\pm2 start server.js -f'
 
             }
