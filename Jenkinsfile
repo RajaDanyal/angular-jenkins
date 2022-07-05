@@ -32,11 +32,13 @@ pipeline {
             }
         }
 
-        // stage("Deploy") {
-        //     steps {
-        //         bat 'node_modules\\.bin\\pm2 stop server.js -f && node_modules\\.bin\\pm2 start server.js -f'
-        //     }
-        // }
+        stage("Deploy") {
+            steps {
+                bat 'node_modules\\.bin\\pm2 stop server.js || true'
+                bat 'node_modules\\.bin\\pm2 start server.js -f'
+
+            }
+        }
     }
 
     post {
